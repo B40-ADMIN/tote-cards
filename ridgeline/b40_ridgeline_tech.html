@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Ridgeline – Fulfillment Tech Prep Card</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Back40utfitters – The Ridgeline · Tech Prep Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -16,31 +16,34 @@
 
     body {
       background: #2C3E2D;
-      display: flex;
+      font-family: 'DM Sans', sans-serif;
+      display: grid;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 32px 16px;
-      font-family: 'DM Sans', sans-serif;
+      padding: 24px;
+      gap: 24px;
     }
 
     .card {
       width: 5.5in;
       min-height: 4.25in;
       background: #F4F0E6;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Orange top bar */
     .top-bar {
+      width: 100%;
       height: 6px;
       background: #B5631A;
-      width: 100%;
+      flex-shrink: 0;
     }
 
-    /* Bottom-right triangle corner */
     .corner-triangle {
       position: absolute;
       bottom: 0;
@@ -52,25 +55,26 @@
       border-color: transparent transparent #4A7C59 transparent;
     }
 
-    /* Card inner padding */
     .card-body {
-      padding: 18px 24px 32px 24px;
+      padding: 14px 18px 20px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
     }
 
-    /* Logo row */
     .logo-row {
       display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 10px;
+      flex-direction: column;
+      gap: 1px;
     }
 
     .logo-wordmark {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
       font-size: 15px;
-      letter-spacing: 0.12em;
+      font-weight: 700;
       color: #2C3E2D;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -79,57 +83,56 @@
       font-size: 9px;
       font-weight: 500;
       color: #C8AA6E;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
-    /* Divider */
-    .divider {
-      height: 1px;
-      background: #C8AA6E;
-      opacity: 0.35;
-      margin-bottom: 10px;
-    }
-
-    /* Gold badge */
     .badge {
       display: inline-block;
       background: #C8AA6E;
       color: #2C3E2D;
       font-family: 'DM Sans', sans-serif;
-      font-size: 8.5px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      padding: 4px 10px;
-      margin-bottom: 13px;
+      padding: 3px 9px;
+      border-radius: 2px;
+      align-self: flex-start;
     }
 
-    /* Section label */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #C8AA6E;
+      opacity: 0.4;
+    }
+
     .section-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 9px;
       font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: #C8AA6E;
-      margin-bottom: 7px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
-    /* Two-column gear grid */
     .gear-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0 0.3in;
-      margin-bottom: 14px;
     }
 
-    /* Check row — used in both gear list and pre-ship checks */
+    .gear-col {
+      display: flex;
+      flex-direction: column;
+    }
+
     .check-row {
       display: flex;
       align-items: flex-start;
       gap: 8px;
-      padding: 5px 0;
+      padding: 4px 0;
       border-bottom: 1px dashed rgba(44,62,45,0.2);
     }
 
@@ -137,158 +140,147 @@
       border-bottom: none;
     }
 
-    /* Checkbox */
     .checkbox {
       width: 16px;
       height: 16px;
-      min-width: 16px;
       border: 1.5px solid #C8AA6E;
+      border-radius: 2px;
       background: transparent;
       flex-shrink: 0;
       margin-top: 1px;
     }
 
-    /* Item block: name + condition note line */
-    .item-block {
+    .check-label-wrap {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 1px;
       flex: 1;
     }
 
-    .item-name {
+    .check-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 400;
       color: #2C3E2D;
       line-height: 1.3;
     }
 
-    .item-qty {
-      font-size: 9px;
-      color: #4A7C59;
-      font-weight: 500;
-    }
-
-    /* Condition note slot */
     .condition-note {
       font-family: 'DM Sans', sans-serif;
       font-size: 8px;
       font-style: italic;
       color: #4A7C59;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      border-bottom: 1px dashed rgba(44,62,45,0.35);
+      width: 100%;
+      line-height: 1.6;
     }
 
-    .condition-line {
-      display: inline-block;
-      border-bottom: 1px dashed rgba(44,62,45,0.4);
-      width: 1.1in;
-      height: 10px;
-    }
-
-    /* Pre-ship section */
     .preship-section {
-      margin-bottom: 13px;
-    }
-
-    .preship-rows {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
 
-    /* Item name in pre-ship rows (single line, no condition slot) */
-    .check-item {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10.5px;
-      font-weight: 400;
-      color: #2C3E2D;
-      line-height: 1.35;
-      padding-top: 1px;
+    .preship-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 0.3in;
+      margin-top: 5px;
     }
 
-    /* Confirm block */
+    .preship-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flat-check-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(44,62,45,0.2);
+    }
+
+    .flat-check-row:last-child {
+      border-bottom: none;
+    }
+
     .confirm-block {
       border: 1px dashed rgba(44,62,45,0.35);
-      padding: 9px 12px;
-      margin-bottom: 14px;
-    }
-
-    .confirm-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #C8AA6E;
-      margin-bottom: 6px;
-    }
-
-    .confirm-line {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      color: #2C3E2D;
+      border-radius: 3px;
+      padding: 8px 12px;
       display: flex;
-      align-items: flex-end;
-      gap: 4px;
+      align-items: center;
+      gap: 6px;
       flex-wrap: wrap;
       row-gap: 0;
     }
 
-    .sig-line {
-      display: inline-block;
-      width: 1.4in;
-      border-bottom: 1px solid #2C3E2D;
-      height: 14px;
+    .confirm-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: #2C3E2D;
+      white-space: nowrap;
     }
 
-    .date-line {
-      display: inline-block;
+    .confirm-line-long {
+      flex: 1;
+      border-bottom: 1px solid #2C3E2D;
+      height: 1px;
+      min-width: 1.4in;
+    }
+
+    .confirm-line-mid {
+      border-bottom: 1px solid #2C3E2D;
+      height: 1px;
       width: 0.65in;
-      border-bottom: 1px solid #2C3E2D;
-      height: 14px;
     }
 
-    .kit-line {
-      display: inline-block;
-      width: 0.65in;
+    .confirm-line-short {
       border-bottom: 1px solid #2C3E2D;
-      height: 14px;
+      height: 1px;
+      width: 0.5in;
     }
 
-    /* Footer */
     .footer {
+      margin-top: auto;
+      padding-top: 6px;
+      border-top: 1px solid rgba(44,62,45,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 76px;
+    }
+
+    .footer-text {
       font-family: 'DM Sans', sans-serif;
       font-size: 8px;
       font-weight: 400;
       color: #4A7C59;
       letter-spacing: 0.1em;
-      text-align: center;
       text-transform: uppercase;
-      padding-right: 50px; /* clear corner triangle */
     }
 
     .footer-internal {
-      color: #B5631A;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
       font-weight: 600;
+      color: #B5631A;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     @media print {
-      body {
-        background: none;
-        padding: 0;
-      }
-      .card {
-        box-shadow: none;
-      }
+      body { background: none; padding: 0; }
+      .card { box-shadow: none; }
     }
   </style>
 </head>
 <body>
   <div class="card">
     <div class="top-bar"></div>
+
     <div class="card-body">
 
       <!-- Logo row -->
@@ -297,105 +289,120 @@
         <span class="logo-sub">The Ridgeline &middot; Tech Prep Card</span>
       </div>
 
-      <div class="divider"></div>
-
       <!-- Badge -->
       <div class="badge">Fulfillment Tech Prep</div>
 
-      <!-- Gear list with condition notes -->
-      <div class="section-label">Kit Contents — Inspect &amp; Verify</div>
+      <div class="divider"></div>
+
+      <!-- Gear checklist with condition notes -->
+      <div class="section-label">Gear Condition Check</div>
+
       <div class="gear-grid">
-        <!-- Left column: items 1–3 -->
+        <!-- Left column -->
         <div class="gear-col">
           <div class="check-row">
             <div class="checkbox"></div>
-            <div class="item-block">
-              <span class="item-name">4-Person Dome Tent</span>
-              <span class="condition-note">Cond: <span class="condition-line"></span></span>
+            <div class="check-label-wrap">
+              <span class="check-label">4-Person Dome Tent</span>
+              <span class="condition-note">Condition:</span>
             </div>
           </div>
           <div class="check-row">
             <div class="checkbox"></div>
-            <div class="item-block">
-              <span class="item-name">Twin Air Mattress with Pump</span>
-              <span class="condition-note">Cond: <span class="condition-line"></span></span>
+            <div class="check-label-wrap">
+              <span class="check-label">Twin Air Mattress with Pump</span>
+              <span class="condition-note">Condition:</span>
             </div>
           </div>
-          <div class="check-row">
+          <div class="check-row" style="border-bottom:none;">
             <div class="checkbox"></div>
-            <div class="item-block">
-              <span class="item-name">Tent Carpet Mat</span>
-              <span class="condition-note">Cond: <span class="condition-line"></span></span>
+            <div class="check-label-wrap">
+              <span class="check-label">Tent Carpet Mat</span>
+              <span class="condition-note">Condition:</span>
             </div>
           </div>
         </div>
-        <!-- Right column: items 4–6 -->
+
+        <!-- Right column -->
         <div class="gear-col">
           <div class="check-row">
             <div class="checkbox"></div>
-            <div class="item-block">
-              <span class="item-name">Rechargeable Flashlight</span>
-              <span class="condition-note">Cond: <span class="condition-line"></span></span>
+            <div class="check-label-wrap">
+              <span class="check-label">Rechargeable Flashlight</span>
+              <span class="condition-note">Condition:</span>
             </div>
           </div>
           <div class="check-row">
             <div class="checkbox"></div>
-            <div class="item-block">
-              <span class="item-name">Deluxe Mess Kit <span class="item-qty">&times;2</span></span>
-              <span class="condition-note">Cond: <span class="condition-line"></span></span>
+            <div class="check-label-wrap">
+              <span class="check-label">Deluxe Mess Kit &times;2</span>
+              <span class="condition-note">Condition:</span>
             </div>
           </div>
-          <div class="check-row">
+          <div class="check-row" style="border-bottom:none;">
             <div class="checkbox"></div>
-            <div class="item-block">
-              <span class="item-name">2 Camp Chairs</span>
-              <span class="condition-note">Cond: <span class="condition-line"></span></span>
+            <div class="check-label-wrap">
+              <span class="check-label">2 Camp Chairs</span>
+              <span class="condition-note">Condition:</span>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="divider"></div>
 
       <!-- Pre-ship checks -->
       <div class="preship-section">
         <div class="section-label">Pre-Ship Checks</div>
-        <div class="preship-rows">
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span class="check-item">Tent poles &amp; stakes counted</span>
+        <div class="preship-checks">
+          <div class="preship-col">
+            <div class="flat-check-row">
+              <div class="checkbox"></div>
+              <span class="check-label">Tent poles &amp; stakes counted</span>
+            </div>
+            <div class="flat-check-row">
+              <div class="checkbox"></div>
+              <span class="check-label">Air mattress inflates / no leaks</span>
+            </div>
+            <div class="flat-check-row" style="border-bottom:none;">
+              <div class="checkbox"></div>
+              <span class="check-label">Mess kit complete — no missing pieces</span>
+            </div>
           </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span class="check-item">Air mattress inflates / no leaks</span>
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span class="check-item">Mess kit complete &mdash; no missing pieces</span>
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span class="check-item">All items bagged / bundled</span>
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span class="check-item">Kit bag exterior clean</span>
+          <div class="preship-col">
+            <div class="flat-check-row">
+              <div class="checkbox"></div>
+              <span class="check-label">All items bagged / bundled</span>
+            </div>
+            <div class="flat-check-row" style="border-bottom:none;">
+              <div class="checkbox"></div>
+              <span class="check-label">Kit bag exterior clean</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="divider"></div>
+
       <!-- Confirm block -->
       <div class="confirm-block">
-        <div class="confirm-label">Tech Sign-Off</div>
-        <div class="confirm-line">
-          Prepped by <span class="sig-line"></span>&nbsp;&nbsp;Date <span class="date-line"></span>&nbsp;&nbsp;Kit # <span class="kit-line"></span>
-        </div>
+        <span class="confirm-text">Prepped by</span>
+        <div class="confirm-line-long"></div>
+        <span class="confirm-text">Date</span>
+        <div class="confirm-line-mid"></div>
+        <span class="confirm-text">Kit&nbsp;#</span>
+        <div class="confirm-line-short"></div>
       </div>
 
       <!-- Footer -->
       <div class="footer">
-        <span class="footer-internal">Internal Use Only</span> &nbsp;&middot;&nbsp; back40utfitters.com
+        <span class="footer-internal">Internal Use Only</span>
+        <span class="footer-text">back40utfitters.com</span>
       </div>
 
     </div>
+
+    <!-- Corner triangle -->
     <div class="corner-triangle"></div>
   </div>
 </body>
