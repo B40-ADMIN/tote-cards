@@ -17,11 +17,12 @@
     body {
       background: #2C3E2D;
       font-family: 'DM Sans', sans-serif;
-      display: flex;
+      display: grid;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 24px;
+      gap: 24px;
     }
 
     .card {
@@ -252,6 +253,110 @@
   </style>
 </head>
 <body>
+  <div class="card">
+    <div class="top-bar"></div>
+
+    <div class="card-body">
+
+      <!-- Logo row -->
+      <div class="logo-row">
+        <span class="logo-wordmark">Back40utfitters</span>
+        <span class="logo-sub">The Ouachita Kit &middot; Renter Checklist</span>
+      </div>
+
+      <!-- Badge -->
+      <div class="badge">Renter Pack-Out Checklist</div>
+
+      <div class="divider"></div>
+
+      <!-- Gear checklist -->
+      <div class="section-label">Gear Items</div>
+
+      <div class="gear-grid">
+        <!-- Left column: first 4 items -->
+        <div class="gear-col">
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Hiking Pack</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Trekking Poles</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">2-Person Backpacking Tent</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Titanium 450ml Cup</span>
+          </div>
+        </div>
+
+        <!-- Right column: remaining items -->
+        <div class="gear-col">
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Ultra-Light Micro Stove &amp; Fuel</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Titanium Long Handle Spork</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Rechargeable Headlamp</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Dry Bag</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="note-text">&#9432;&nbsp; Sleeping bag and pad not included in this kit.</p>
+
+      <div class="divider"></div>
+
+      <!-- Return condition -->
+      <div class="return-section">
+        <div class="section-label">Return Condition</div>
+        <div class="return-checks">
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">All items accounted for</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Items returned clean / field-dirty OK</span>
+          </div>
+          <div class="check-row" style="border-bottom:none;">
+            <div class="checkbox"></div>
+            <span class="check-label">No damage beyond normal wear</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Confirm block -->
+      <div class="confirm-block">
+        <span class="confirm-text">Renter signature</span>
+        <div class="confirm-line-long"></div>
+        <span class="confirm-text">Date</span>
+        <div class="confirm-line-short"></div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <span class="footer-text">back40utfitters.com &middot; Fort Smith, AR</span>
+      </div>
+
+    </div>
+
+    <!-- Corner triangle -->
+    <div class="corner-triangle"></div>
+  </div>
   <div class="card">
     <div class="top-bar"></div>
 
