@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Back40utfitters – River Valley Pack · Renter Checklist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #2C3E2D;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+
+    .card {
+      width: 5.5in;
+      min-height: 4.25in;
+      background: #F4F0E6;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    }
+
+    /* Orange top bar */
+    .top-bar {
+      height: 6px;
+      background: #B5631A;
+      width: 100%;
+    }
+
+    /* Bottom-right triangle corner */
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 70px 70px;
+      border-color: transparent transparent #4A7C59 transparent;
+    }
+
+    .card-inner {
+      padding: 14px 18px 20px 18px;
+    }
+
+    /* Logo row */
+    .logo-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 9px;
+    }
+
+    .logo-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #2C3E2D;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 500;
+      color: #C8AA6E;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Gold badge */
+    .badge {
+      display: inline-block;
+      background: #C8AA6E;
+      color: #2C3E2D;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      margin-bottom: 11px;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(200,170,110,0.4);
+      margin-bottom: 10px;
+    }
+
+    /* Section label */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: #C8AA6E;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    /* Two-column gear grid */
+    .gear-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 0.3in;
+      margin-bottom: 11px;
+    }
+
+    /* Check row */
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(44,62,45,0.22);
+    }
+
+    .check-row:last-child {
+      border-bottom: none;
+    }
+
+    .checkbox {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #C8AA6E;
+      background: transparent;
+    }
+
+    .check-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5px;
+      font-weight: 400;
+      color: #2C3E2D;
+      line-height: 1.3;
+    }
+
+    /* Kit note */
+    .kit-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      color: #B5631A;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    /* Return condition section */
+    .return-section {
+      margin-bottom: 10px;
+    }
+
+    .return-section .check-row {
+      padding: 5px 0;
+    }
+
+    /* Confirm block */
+    .confirm-block {
+      border: 1px dashed rgba(44,62,45,0.35);
+      padding: 8px 12px;
+      margin-bottom: 10px;
+    }
+
+    .confirm-block-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 500;
+      color: #C8AA6E;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .sig-line {
+      display: flex;
+      align-items: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .sig-field {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+    }
+
+    .sig-field-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5px;
+      color: #2C3E2D;
+      white-space: nowrap;
+      padding-bottom: 2px;
+    }
+
+    .sig-line-rule {
+      border: none;
+      border-bottom: 1px solid #2C3E2D;
+    }
+
+    .sig-line-rule.long  { width: 1.4in; }
+    .sig-line-rule.short { width: 0.65in; }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 70px; /* clear the corner triangle */
+    }
+
+    .footer-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 7.5px;
+      color: #4A7C59;
+      letter-spacing: 0.08em;
+    }
+
+    .kit-price {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 7.5px;
+      color: #B5631A;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="top-bar"></div>
+    <div class="card-inner">
+
+      <!-- Logo row -->
+      <div class="logo-row">
+        <span class="logo-wordmark">Back40utfitters</span>
+        <span class="logo-sub">River Valley Pack &middot; Renter Checklist</span>
+      </div>
+
+      <!-- Badge -->
+      <div class="badge">Renter Pack-Out Checklist</div>
+
+      <hr class="divider" />
+
+      <!-- Gear checklist -->
+      <div class="section-label">Gear List &mdash; Verify at Pickup &amp; Return</div>
+
+      <div class="gear-grid">
+        <!-- Left column: items 1–5 -->
+        <div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">6-Person Tunnel Tent w/ Screened Room</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Tent Carpet Mat</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Queen Self-Inflating Mattress</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Rechargeable Flashlight</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">1-Burner Camp Stove</span>
+          </div>
+        </div>
+        <!-- Right column: items 6–9 -->
+        <div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">6-Cup Coffee Percolator</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">Carbon Steel Frypan + Stainless Pot</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">4 Blue Enamel Plates</span>
+          </div>
+          <div class="check-row">
+            <div class="checkbox"></div>
+            <span class="check-label">4 Camp Chairs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-note">Note: Bedding not included.</div>
+
+      <hr class="divider" />
+
+      <!-- Return condition -->
+      <div class="return-section">
+        <div class="section-label">Return Condition</div>
+        <div class="check-row">
+          <div class="checkbox"></div>
+          <span class="check-label">All items accounted for</span>
+        </div>
+        <div class="check-row">
+          <div class="checkbox"></div>
+          <span class="check-label">Items returned clean &mdash; field-dirty OK</span>
+        </div>
+        <div class="check-row">
+          <div class="checkbox"></div>
+          <span class="check-label">No damage beyond normal wear</span>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Confirm block -->
+      <div class="confirm-block">
+        <div class="confirm-block-label">Renter Acknowledgment</div>
+        <div class="sig-line">
+          <div class="sig-field">
+            <span class="sig-field-label">Renter signature</span>
+            <hr class="sig-line-rule long" />
+          </div>
+          <div class="sig-field">
+            <span class="sig-field-label">Date</span>
+            <hr class="sig-line-rule short" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <span class="footer-text">back40utfitters.com &middot; Fort Smith, AR</span>
+        <span class="kit-price">$85 / night &middot; 4–6 people</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
