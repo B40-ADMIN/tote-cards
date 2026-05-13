@@ -1,409 +1,82 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Back40utfitters – The Ridgeline · Tech Prep Card</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: #2C3E2D;
-      font-family: 'DM Sans', sans-serif;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 24px;
-      gap: 24px;
-    }
-
-    .card {
-      width: 5.5in;
-      min-height: 4.25in;
-      background: #F4F0E6;
-      border-radius: 4px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .top-bar {
-      width: 100%;
-      height: 6px;
-      background: #B5631A;
-      flex-shrink: 0;
-    }
-
-    .corner-triangle {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 70px 70px;
-      border-color: transparent transparent #4A7C59 transparent;
-    }
-
-    .card-body {
-      padding: 14px 18px 20px 18px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-    .logo-row {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
-    .logo-wordmark {
-      font-family: 'Playfair Display', serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #2C3E2D;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 500;
-      color: #C8AA6E;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #C8AA6E;
-      color: #2C3E2D;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 2px;
-      align-self: flex-start;
-    }
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: #C8AA6E;
-      opacity: 0.4;
-    }
-
-    .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      color: #C8AA6E;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .gear-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 0.3in;
-    }
-
-    .gear-col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .check-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 4px 0;
-      border-bottom: 1px dashed rgba(44,62,45,0.2);
-    }
-
-    .check-row:last-child {
-      border-bottom: none;
-    }
-
-    .checkbox {
-      width: 16px;
-      height: 16px;
-      border: 1.5px solid #C8AA6E;
-      border-radius: 2px;
-      background: transparent;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .check-label-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      flex: 1;
-    }
-
-    .check-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      color: #2C3E2D;
-      line-height: 1.3;
-    }
-
-    .condition-note {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8px;
-      font-style: italic;
-      color: #4A7C59;
-      border-bottom: 1px dashed rgba(44,62,45,0.35);
-      width: 100%;
-      line-height: 1.6;
-    }
-
-    .preship-section {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .preship-checks {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 0.3in;
-      margin-top: 5px;
-    }
-
-    .preship-col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .flat-check-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 0;
-      border-bottom: 1px dashed rgba(44,62,45,0.2);
-    }
-
-    .flat-check-row:last-child {
-      border-bottom: none;
-    }
-
-    .confirm-block {
-      border: 1px dashed rgba(44,62,45,0.35);
-      border-radius: 3px;
-      padding: 8px 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      row-gap: 0;
-    }
-
-    .confirm-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      color: #2C3E2D;
-      white-space: nowrap;
-    }
-
-    .confirm-line-long {
-      flex: 1;
-      border-bottom: 1px solid #2C3E2D;
-      height: 1px;
-      min-width: 1.4in;
-    }
-
-    .confirm-line-mid {
-      border-bottom: 1px solid #2C3E2D;
-      height: 1px;
-      width: 0.65in;
-    }
-
-    .confirm-line-short {
-      border-bottom: 1px solid #2C3E2D;
-      height: 1px;
-      width: 0.5in;
-    }
-
-    .footer {
-      margin-top: auto;
-      padding-top: 6px;
-      border-top: 1px solid rgba(44,62,45,0.15);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-right: 76px;
-    }
-
-    .footer-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8px;
-      font-weight: 400;
-      color: #4A7C59;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .footer-internal {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 8px;
-      font-weight: 600;
-      color: #B5631A;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    @media print {
-      body { background: none; padding: 0; }
-      .card { box-shadow: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.card{width:5.5in;min-height:4.25in;background:#2C3E2D;font-family:'DM Sans',sans-serif;padding:0.4in 0.45in 0.35in;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:#B5631A}
+.card-corner{position:absolute;bottom:0;right:0;width:70px;height:70px;background:#4A7C59;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.logo-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.16in}
+.brand{font-family:'Playfair Display',serif;font-size:17px;color:#F4F0E6;letter-spacing:0.02em}
+.brand sub{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#C8AA6E;display:block;margin-top:2px}
+.card-type{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#2C3E2D;background:#C8AA6E;padding:4px 10px;border-radius:2px}
+.headline{font-family:'Playfair Display',serif;font-size:21px;color:#F4F0E6;margin-bottom:3px}
+.sub{font-size:11px;color:#C8AA6E;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.16in}
+.divider{height:1px;background:#F4F0E6;opacity:0.15;margin-bottom:0.16in}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 0.3in}
+.section-label{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C8AA6E;margin-bottom:7px}
+.check-row{display:flex;align-items:center;gap:9px;padding:4px 0;border-bottom:1px dashed rgba(244,240,230,0.12)}
+.check-row:last-child{border-bottom:none}
+.box{width:16px;height:16px;border:1.5px solid #C8AA6E;border-radius:2px;flex-shrink:0}
+.item-name{font-size:12px;color:#F4F0E6;line-height:1.3}
+.item-qty{font-size:10px;color:#C8AA6E;margin-left:auto;white-space:nowrap}
+.confirm-block{margin-top:0.14in;background:rgba(244,240,230,0.07);border:1px dashed rgba(200,170,110,0.35);border-radius:3px;padding:10px 14px}
+.confirm-label{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C8AA6E;margin-bottom:8px}
+.confirm-row{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.confirm-row:last-child{margin-bottom:0}
+.confirm-text{font-size:11px;color:#F4F0E6}
+.footer{margin-top:0.12in;display:flex;align-items:flex-end;justify-content:space-between}
+.footer-note{font-size:10px;color:rgba(244,240,230,0.55);line-height:1.5;max-width:3in}
+.footer-note strong{color:#C8AA6E}
+.sig-block{text-align:right}
+.sig-line{width:1.4in;border-bottom:1px solid rgba(200,170,110,0.4);height:22px;display:inline-block}
+.sig-label{font-size:9px;color:rgba(244,240,230,0.45);letter-spacing:0.08em;display:block;margin-top:3px}
+</style>
 </head>
 <body>
-  <div class="card">
-    <div class="top-bar"></div>
-
-    <div class="card-body">
-
-      <!-- Logo row -->
-      <div class="logo-row">
-        <span class="logo-wordmark">Back40utfitters</span>
-        <span class="logo-sub">The Ridgeline &middot; Tech Prep Card</span>
-      </div>
-
-      <!-- Badge -->
-      <div class="badge">Fulfillment Tech Prep</div>
-
-      <div class="divider"></div>
-
-      <!-- Gear checklist with condition notes -->
-      <div class="section-label">Gear Condition Check</div>
-
-      <div class="gear-grid">
-        <!-- Left column -->
-        <div class="gear-col">
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <div class="check-label-wrap">
-              <span class="check-label">4-Person Dome Tent</span>
-              <span class="condition-note">Condition:</span>
-            </div>
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <div class="check-label-wrap">
-              <span class="check-label">Twin Air Mattress with Pump</span>
-              <span class="condition-note">Condition:</span>
-            </div>
-          </div>
-          <div class="check-row" style="border-bottom:none;">
-            <div class="checkbox"></div>
-            <div class="check-label-wrap">
-              <span class="check-label">Tent Carpet Mat</span>
-              <span class="condition-note">Condition:</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column -->
-        <div class="gear-col">
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <div class="check-label-wrap">
-              <span class="check-label">Rechargeable Flashlight</span>
-              <span class="condition-note">Condition:</span>
-            </div>
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <div class="check-label-wrap">
-              <span class="check-label">Deluxe Mess Kit &times;2</span>
-              <span class="condition-note">Condition:</span>
-            </div>
-          </div>
-          <div class="check-row" style="border-bottom:none;">
-            <div class="checkbox"></div>
-            <div class="check-label-wrap">
-              <span class="check-label">2 Camp Chairs</span>
-              <span class="condition-note">Condition:</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Pre-ship checks -->
-      <div class="preship-section">
-        <div class="section-label">Pre-Ship Checks</div>
-        <div class="preship-checks">
-          <div class="preship-col">
-            <div class="flat-check-row">
-              <div class="checkbox"></div>
-              <span class="check-label">Tent poles &amp; stakes counted</span>
-            </div>
-            <div class="flat-check-row">
-              <div class="checkbox"></div>
-              <span class="check-label">Air mattress inflates / no leaks</span>
-            </div>
-            <div class="flat-check-row" style="border-bottom:none;">
-              <div class="checkbox"></div>
-              <span class="check-label">Mess kit complete — no missing pieces</span>
-            </div>
-          </div>
-          <div class="preship-col">
-            <div class="flat-check-row">
-              <div class="checkbox"></div>
-              <span class="check-label">All items bagged / bundled</span>
-            </div>
-            <div class="flat-check-row" style="border-bottom:none;">
-              <div class="checkbox"></div>
-              <span class="check-label">Kit bag exterior clean</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Confirm block -->
-      <div class="confirm-block">
-        <span class="confirm-text">Prepped by</span>
-        <div class="confirm-line-long"></div>
-        <span class="confirm-text">Date</span>
-        <div class="confirm-line-mid"></div>
-        <span class="confirm-text">Kit&nbsp;#</span>
-        <div class="confirm-line-short"></div>
-      </div>
-
-      <!-- Footer -->
-      <div class="footer">
-        <span class="footer-internal">Internal Use Only</span>
-        <span class="footer-text">back40utfitters.com</span>
-      </div>
-
-    </div>
-
-    <!-- Corner triangle -->
-    <div class="corner-triangle"></div>
+<div class="card">
+  <div class="card-corner"></div>
+  <div class="logo-row">
+    <div class="brand">Back40utfitters<sub>The Ridgeline — Tech Copy</sub></div>
+    <div class="card-type">Internal Use</div>
   </div>
+  <div class="headline">Tote Prep & Delivery Check</div>
+  <div class="sub">Complete before every gear-out — no exceptions</div>
+  <div class="divider"></div>
+  <div class="cols">
+    <div>
+      <div class="section-label">Gear Loaded</div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Tent, poles, rainfly & stakes</span><span class="item-qty">×1 set</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Twin Air Mattress with Pump</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Tent Foootprint</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Rechargeable Flashlight</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Deluxe Mess Kit</span><span class="item-qty">×2</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Camp Chairs</span><span class="item-qty">×2</span></div>
+    </div>
+    <div>
+      <div class="section-label">Hidden Included Items</div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Hammer for tent stakes</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">First fire kit</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Thank you card</span></div>
+      <div class="section-label" style="margin-top:10px">Tote Condition</div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Tote cleaned / inspected</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Lid secure — no cracks</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Renter checklist card inside lid</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Tote # labeled</span></div>
+    </div>
+  </div>
+  <div class="confirm-block">
+    <div class="confirm-label">Pre-Delivery Confirm</div>
+    <div class="confirm-row"><div class="box"></div><span class="confirm-text">Stripe pre-auth verified</span></div>
+    <div class="confirm-row"><div class="box"></div><span class="confirm-text">Rental agreement signed / on file</span></div>
+    <div class="confirm-row"><div class="box"></div><span class="confirm-text">Pickup / delivery address confirmed with renter</span></div>
+    <div class="confirm-row"><div class="box"></div><span class="confirm-text">Renter texted ETA or pickup window</span></div>
+  </div>
+</div>
 </body>
 </html>

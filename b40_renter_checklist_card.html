@@ -1,17 +1,23 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Back40utfitters – Renter Pack-Out Checklist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 .card{width:5.5in;min-height:4.25in;background:#F4F0E6;font-family:'DM Sans',sans-serif;padding:0.45in 0.45in 0.35in;border:2px solid #2C3E2D;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:#4A7C59}
 .card-corner{position:absolute;bottom:0;right:0;width:80px;height:80px;background:#2C3E2D;clip-path:polygon(100% 0,100% 100%,0 100%)}
-.logo-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.2in}
-.brand{font-family:'Playfair Display',serif;font-size:18px;color:#2C3E2D;letter-spacing:0.02em}
-.brand sub{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#4A7C59;display:block;margin-top:2px}
-.card-type{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#fff;background:#B5631A;padding:4px 10px;border-radius:2px}
+.logo-row{display:flex;flex-direction:column;gap:1px;margin-bottom:0.15in}
+.logo-wordmark{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#2C3E2D;letter-spacing:0.08em;text-transform:uppercase}
+.logo-sub{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;color:#C8AA6E;letter-spacing:0.18em;text-transform:uppercase}
+.badge{display:inline-block;background:#C8AA6E;color:#2C3E2D;font-family:'DM Sans',sans-serif;font-size:8px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:3px 9px;border-radius:2px;align-self:flex-start;margin-bottom:0.12in}
 .headline{font-family:'Playfair Display',serif;font-size:22px;color:#2C3E2D;margin-bottom:4px}
 .sub{font-size:11px;color:#4A7C59;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.18in}
-.divider{height:1px;background:#2C3E2D;opacity:0.18;margin-bottom:0.18in}
+.divider{width:100%;height:1px;background:#C8AA6E;opacity:0.4;margin-bottom:0.12in}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 0.3in}
 .section-label{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#B5631A;margin-bottom:8px}
 .check-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px dashed rgba(44,62,45,0.15)}
@@ -23,45 +29,42 @@
 .footer-note{font-size:10px;color:#2C3E2D;max-width:3.2in;line-height:1.5}
 .footer-note strong{color:#B5631A}
 .kit-badge{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4A7C59;border:1px solid #4A7C59;padding:3px 8px;border-radius:2px}
-.tote-line{display:flex;gap:16px;margin-top:0.12in}
-.tote-field{flex:1;border-bottom:1px solid rgba(44,62,45,0.3);font-size:10px;color:#6b6b60;padding-bottom:2px}
 </style>
+</head>
+<body>
 <div class="card">
   <div class="card-corner"></div>
   <div class="logo-row">
-    <div class="brand">Back40utfitters<sub>River Valley · Arkansas</sub></div>
-    <div class="card-type">Renter Copy</div>
+    <span class="logo-wordmark">Back40utfitters</span>
+    <span class="logo-sub">River Valley · Arkansas &middot; Renter Checklist</span>
   </div>
-  <div class="headline">Pack-Out Checklist</div>
-  <div class="sub">Return all items before departure — thanks for adventuring with us</div>
+
+  <div class="badge">Renter Pack-Out Checklist</div>
+
   <div class="divider"></div>
   <div class="cols">
     <div>
       <div class="section-label">Shelter & Sleep</div>
-      <div class="check-row"><div class="box"></div><span class="item-name">Tent + poles + stakes</span><span class="item-qty">×1 set</span></div>
-      <div class="check-row"><div class="box"></div><span class="item-name">Tent carpet mat</span><span class="item-qty">×1</span></div>
-      <div class="check-row"><div class="box"></div><span class="item-name">Air mattress + pump</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Tent, poles, rainfly, stakes</span><span class="item-qty">×1 set</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Tent carpet mat</span><span class="item-qty">×2</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Air Mattress + Pump</span><span class="item-qty">×1</span></div>
       <div class="section-label" style="margin-top:12px">Lighting</div>
-      <div class="check-row"><div class="box"></div><span class="item-name">Rechargeable flashlight</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Rechargeable flashlight + Charger</span><span class="item-qty">×1</span></div>
       <div class="check-row"><div class="box"></div><span class="item-name">Headlamp(s)</span><span class="item-qty">×__</span></div>
     </div>
     <div>
       <div class="section-label">Camp & Cook</div>
       <div class="check-row"><div class="box"></div><span class="item-name">Coffee percolator</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">1-Burner Camp Stove + Fuel tank</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Spat + Spoon</span><span class="item-qty">×1</span></div>
+      <div class="check-row"><div class="box"></div><span class="item-name">Blackstone, hose, tank, utensils</span><span class="item-qty">×1 set</span></div>
       <div class="check-row"><div class="box"></div><span class="item-name">Camp chairs</span><span class="item-qty">×2</span></div>
-      <div class="section-label" style="margin-top:12px">Tote & Accessories</div>
-      <div class="check-row"><div class="box"></div><span class="item-name">Rental tote (lid + body)</span><span class="item-qty">×1</span></div>
-      <div class="check-row"><div class="box"></div><span class="item-name">All bungees / straps</span><span class="item-qty">×__</span></div>
-      <div class="check-row"><div class="box"></div><span class="item-name">This card</span><span class="item-qty">×1</span></div>
     </div>
   </div>
-  <div class="tote-line">
-    <div class="tote-field">Kit: ___________________</div>
-    <div class="tote-field">Rental dates: ___________________</div>
-    <div class="tote-field">Tote #: _______</div>
-  </div>
   <div class="footer">
-    <div class="footer-note"><strong>Return gear loose in the tote — no need to clean it.</strong> Missing or damaged items are subject to the damage waiver or replacement cost. Questions? Text Cameron: (479) ___-____</div>
+    <div class="footer-note"><strong>Return gear loose in the tote — no need to clean it.</strong> Missing or damaged items are subject to the damage waiver or replacement cost. Questions? Email Cameron: gear@back40utfitters.com</div>
     <div class="kit-badge">Gear up. Get out.</div>
   </div>
 </div>
+</body>
+</html>
